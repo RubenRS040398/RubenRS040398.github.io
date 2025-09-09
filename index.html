@@ -3,9 +3,16 @@
 	<head>
 		<title>Rubén Ramos Segarra</title>
 		<link rel="icon" type="image/x-icon" href="media/RSLogo64px.ico">
+		<script type="importmap">
+		{
+			"imports": {
+				"three": "https://unpkg.com/three@0.180.0/build/three.module.js",
+				"three/addons/": "https://unpkg.com/three@0.180.0/examples/jsm/"
+			}
+		}
+		</script>
 	</head>
 	<body>
-		<script src="./scripts/background.js"></script>
 		<div class="top-buttons">
 			<button class="top-button" id="language"></button>
 			<button class="top-button" onclick="window.open('https://github.com/RubenRS040398', '_blank')"></button>
@@ -53,5 +60,183 @@
 			</div>
 		</div>
 		<footer id="copyright">© 2025 Rubén Ramos Segarra</footer>
+		<script type="module">
+			import * as THREE from 'three';
+
+			// Scene
+			const scene = new THREE.Scene();
+			scene.background = new THREE.Color(0xffffff);
+			
+			// Camera
+			const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+			
+			// Renderer
+			const renderer = new THREE.WebGLRenderer({ antialias: true });
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			renderer.setPixelRatio(window.devicePixelRatio);
+			document.body.appendChild(renderer.domElement);
+			
+			// Lights
+			const ambientLight = new THREE.AmbientLight(0xffffff, 3.5);
+			scene.add(ambientLight);
+			
+			const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+			directionalLight.position.set(5, 10, 7.5);
+			scene.add(directionalLight);
+			
+			// Cubes
+			const cubes = [];
+			const count = 20;
+			const geometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
+			
+			for (let i = 0; i < count; i++) {
+				const material = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.4, metalness: 0.2 });
+				const cube = new THREE.Mesh(geometry, material);
+				cube.position.set((Math.random() - 0.5) * 50, (Math.random() - 0.5) * 50, (Math.random() - 0.5) * 50);
+				cube.rotationSpeed = { x: (Math.random() - 0.5) * 0.05, y: (Math.random() - 0.5) * 0.05 };
+				cube.userData.targetColor = new THREE.Color(0xffffff);
+				scene.add(cube);
+				cubes.push(cube);
+			}
+			
+			// Language
+			let defaultLanguage = "en";
+			
+			// Mode
+			let isDarkMode = false;
+			
+			// HTML Elements (by id)
+			const language = document.getElementById("language");
+			const mode = document.getElementById("mode");
+			const section1 = document.getElementById("section-1");
+			const section2 = document.getElementById("section-2");
+			const section3 = document.getElementById("section-3");
+			const section4 = document.getElementById("section-4");
+			const name = document.getElementById("name");
+			const profession = document.getElementById("profession");
+			const introTitle = document.getElementById("intro-title");
+			const introText = document.getElementById("intro-text");
+			const projectsTitle = document.getElementById("projects-title");
+			const projectsText = document.getElementById("projects-text");
+			const contactTitle = document.getElementById("contact-title");
+			const cvText = document.getElementById("cv-text");
+			const copyright = document.getElementById("copyright");
+			
+			// HTML Elements (by class)
+			const topButton = document.getElementsByClassName("top-button");
+			const upArrow = document.getElementsByClassName("up-arrow");
+			const downArrow = document.getElementsByClassName("down-arrow");
+			const textSection = document.getElementsByClassName("text-section");
+			const cell = document.getElementsByClassName("cell");
+			
+			// Sets the language (English, Spanish or Catalan)
+			function setLanguage() {
+				if (defaultLanguage === "en") {	// If English, switch to Spanish
+					defaultLanguage = "es";
+					language.innerHTML = '';
+					profession.innerText = "Estudiante de Ingeniería Informática";
+					introTitle.innerText = "INTRODUCCIÓN";
+					introText.innerText = "Mi nombre es Rubén Ramos Segarra y soy estudiante de Ingeniería Informática (actualmente finalizando mis estudios). Mi especialidad es la computación (análisis y diseño de algoritmos, aprendizaje automático, visión por computador, entre otros), pero también tengo experiencia en desarrollo web, bases de datos, testing y gestión de proyectos, además de conocimientos en lenguajes de programación como C/C++, Python, Java y JavaScript. Es por ello que me considero una persona innovadora y creativa con gran capacidad para adaptarme a los avances tecnológicos y adquirir nuevos conocimientos.";
+					projectsTitle.innerText = "PROYECTOS";
+					contactTitle.innerText = "CONTACTO E INFORMACIÓN ADICIONAL";
+					cvText.innerText = "Mi Currículum Vitae";
+				} else if (defaultLanguage === "es") {	// If Spanish, switch to Catalan
+					defaultLanguage = "ca";
+					language.innerHTML = '';
+					profession.innerText = "Estudiant d’Enginyeria Informàtica";
+					introTitle.innerText = "INTRODUCCIÓ";
+					introText.innerText = "El meu nom és Rubén Ramos Segarra i sóc estudiant d'Enginyeria Informàtica (actualment finalitzant els meus estudis). La meva especialitat és la computació (anàlisi i disseny d'algoritmes, aprenentatge automàtic, visió per computador, entre d'altres), però també tinc experiència en desenvolupament web, bases de dades, testing i gestió de projectes, a més de coneixements en llenguatges de programació com ara C/C++, Python, Java i JavaScript. És per això que em considero una persona innovadora i creativa amb gran capacitat per adaptar-me als avenços tecnològics i adquirir nous coneixements.";
+					projectsTitle.innerText = "PROJECTES";
+					contactTitle.innerText = "CONTACTE I INFORMACIÓ ADDICIONAL";
+					cvText.innerText = "El meu Currículum Vitae";
+				} else if (defaultLanguage === "ca") {	// If Catalan, switch to English
+					defaultLanguage = "en";
+					language.innerHTML = '';
+					profession.innerText = "Computer Engineering Student";
+					introTitle.innerText = "INTRODUCTION";
+					introText.innerText = "My name is Rubén Ramos Segarra, and I'm a Computer Engineering student (currently concluding my studies). My specialty is Computer Science (algorithm analysis and design, machine learning, computer vision, among others), but I also have experience in web development, databases, testing and project management, in addition to having experience in programming languages ​​such as C/C++, Python, Java, and JavaScript. That's why I consider myself an innovative and creative person with a great capacity to adapt to technological advances and acquire new knowledgements.";
+					projectsTitle.innerText = "PROJECTS";
+					contactTitle.innerText = "CONTACT & ADDITIONAL INFO";
+					cvText.innerText = "My Curriculum Vitae";
+				}
+			}
+			
+			language.addEventListener("click", setLanguage);
+			
+			function changeMode() {
+				isDarkMode = !isDarkMode;
+				const color = isDarkMode ? 0x404040 : 0xffffff;
+				scene.background.set(isDarkMode ? 0x404040 : 0xffffff);
+				cubes.forEach(cube => cube.userData.targetColor.set(color));
+				topButton.forEach(button => {
+					if (isDarkMode) {
+						button.style.backgroundColor = "#f2f2f2";
+						button.style.color = "#3f48cc";
+					} else {
+						btn.style.backgroundColor = "#3f48cc";
+						btn.style.color = "#f2f2f2";
+					}
+				});
+				section1.style.color = isDarkMode ? "#f2f2f2" : "#3f48cc";
+				name.style.color = isDarkMode ? "#f2f2f2" : "#3f48cc";
+				profession.style.color = isDarkMode ? "#606060" : "#404040";
+				for (let i = 0; i < upArrow.length; i++) {
+					upArrow[i].style.color = isDarkMode ? "#f2f2f2" : "#3f48cc";
+				}
+				for (let i = 0; i < downArrow.length; i++) {
+					downArrow[i].style.color = isDarkMode ? "#f2f2f2" : "#3f48cc";
+				}
+				for (let i = 0; i < textSection.length; i++) {
+					textSection[i].style.color = isDarkMode ? "#f2f2f2" : "#404040";
+					textSection[i].style.backgroundColor = isDarkMode ? "#606060" : "#f2f2f2";
+				}
+				for (let i = 0; i < cell.length; i++) {
+					cell[i].style.color = isDarkMode ? "#f2f2f2" : "#404040";
+					cell[i].style.backgroundColor = isDarkMode ? "#404040" : "#ffffff";
+				}
+				copyright.style.color = isDarkMode ? "#f2f2f2" : "#404040";
+			}
+			
+			mode.addEventListener("click", changeMode);
+			
+			// Animation
+			function animate() {
+				requestAnimationFrame(animate);
+				const time = Date.now() * 0.001;
+				scene.background.lerp(scene.background, 0.05);
+				cubes.forEach(cube => {
+					cube.rotation.x += cube.rotationSpeed.x;
+					cube.rotation.y += cube.rotationSpeed.y;
+					cube.position.y += Math.sin(time + cube.position.x) * 0.01;
+					cube.material.color.lerp(cube.userData.targetColor, 0.05);
+				});
+				renderer.render(scene, camera);
+			}
+			animate();
+			
+			const scrollY = window.scrollY;
+			const sectionHeight = 300;
+			
+			window.addEventListener("scroll", () => {
+				if (scrollY <= 50) {
+					section1.style.top = "55%";
+					section2.style.top = "300%";
+					section3.style.top = "300%";
+					section4.style.top = "300%";
+				} else {
+					const index = Math.min(Math.floor((scrollY - 50) / sectionHeight), 2);
+					section1.style.top = "-100%";
+					section2.style.top = 0 === index ? "50%" : (0 < index ? "-100%" : "300%");
+					section3.style.top = 1 === index ? "50%" : (1 < index ? "-100%" : "300%");
+					section3.style.top = 2 === index ? "50%" : (2 < index ? "-100%" : "300%");
+				}
+			});
+			
+			window.addEventListener("resize", () => {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize(window.innerWidth, window.innerHeight);
+			});
+		</script>
 	</body>
 </html>
