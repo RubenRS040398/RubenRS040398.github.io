@@ -5,6 +5,8 @@
 		<link rel="icon" type="image/x-icon" href="media/RSLogo64px.ico">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap">
+		<script src="https://kit.fontawesome.com/0750aed76a.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
 		<link rel="stylesheet" href="styles.css">
 		<script type="importmap">
 		{
@@ -17,10 +19,10 @@
 	</head>
 	<body>
 		<div class="top-buttons">
-			<button class="top-button" id="language"></button>
-			<button class="top-button" onclick="window.open('https://github.com/RubenRS040398', '_blank')"></button>
-			<button class="top-button" onclick="window.open('https://linkedin.com/in/ruben-ramos-segarra', '_blank')"></button>
-			<button class="top-button" id="mode"></button>
+			<button class="top-button" id="language"><span class="fi fi-gb fis"></span></button>
+			<button class="top-button" onclick="window.open('https://github.com/RubenRS040398', '_blank')"><i class="fa-brands fa-github"></i></button>
+			<button class="top-button" onclick="window.open('https://linkedin.com/in/ruben-ramos-segarra', '_blank')"><i class="fa-brands fa-linkedin"></i></button>
+			<button class="top-button" id="mode"><i class="fa-solid fa-moon"></i></button>
 		</div>
 		<div class="title" id="section-1">
 			<div id="name">RUBÉN RAMOS SEGARRA</div>
@@ -137,7 +139,7 @@
 			function setLanguage() {
 				if (defaultLanguage === "en") {	// If English, switch to Spanish
 					defaultLanguage = "es";
-					language.innerHTML = '';
+					language.innerHTML = '<span class="fi fi-es fis"></span>';
 					profession.innerText = "Estudiante de Ingeniería Informática";
 					introTitle.innerText = "INTRODUCCIÓN";
 					introText.innerText = "Mi nombre es Rubén Ramos Segarra y soy estudiante de Ingeniería Informática (actualmente finalizando mis estudios). Mi especialidad es la computación (análisis y diseño de algoritmos, aprendizaje automático, visión por computador, entre otros), pero también tengo experiencia en desarrollo web, bases de datos, testing y gestión de proyectos, además de conocimientos en lenguajes de programación como C/C++, Python, Java y JavaScript. Es por ello que me considero una persona innovadora y creativa con gran capacidad para adaptarme a los avances tecnológicos y adquirir nuevos conocimientos.";
@@ -146,7 +148,7 @@
 					cvText.innerText = "Mi Currículum Vitae";
 				} else if (defaultLanguage === "es") {	// If Spanish, switch to Catalan
 					defaultLanguage = "ca";
-					language.innerHTML = '';
+					language.innerHTML = '<span class="fi fi-es-ct fis"></span>';
 					profession.innerText = "Estudiant d’Enginyeria Informàtica";
 					introTitle.innerText = "INTRODUCCIÓ";
 					introText.innerText = "El meu nom és Rubén Ramos Segarra i sóc estudiant d'Enginyeria Informàtica (actualment finalitzant els meus estudis). La meva especialitat és la computació (anàlisi i disseny d'algoritmes, aprenentatge automàtic, visió per computador, entre d'altres), però també tinc experiència en desenvolupament web, bases de dades, testing i gestió de projectes, a més de coneixements en llenguatges de programació com ara C/C++, Python, Java i JavaScript. És per això que em considero una persona innovadora i creativa amb gran capacitat per adaptar-me als avenços tecnològics i adquirir nous coneixements.";
@@ -155,7 +157,7 @@
 					cvText.innerText = "El meu Currículum Vitae";
 				} else if (defaultLanguage === "ca") {	// If Catalan, switch to English
 					defaultLanguage = "en";
-					language.innerHTML = '';
+					language.innerHTML = '<span class="fi fi-gb fis"></span>';
 					profession.innerText = "Computer Engineering Student";
 					introTitle.innerText = "INTRODUCTION";
 					introText.innerText = "My name is Rubén Ramos Segarra, and I'm a Computer Engineering student (currently concluding my studies). My specialty is Computer Science (algorithm analysis and design, machine learning, computer vision, among others), but I also have experience in web development, databases, testing and project management, in addition to having experience in programming languages ​​such as C/C++, Python, Java, and JavaScript. That's why I consider myself an innovative and creative person with a great capacity to adapt to technological advances and acquire new knowledgements.";
@@ -167,20 +169,23 @@
 			
 			language.addEventListener("click", setLanguage);
 			
+			const lerpBackground = new THREE.Color(0xffffff);
+			
 			function changeMode() {
 				isDarkMode = !isDarkMode;
 				const color = isDarkMode ? 0x404040 : 0xffffff;
-				scene.background.set(isDarkMode ? 0x404040 : 0xffffff);
+				lerpBackground.set(isDarkMode ? 0x404040 : 0xffffff);
 				cubes.forEach(cube => cube.userData.targetColor.set(color));
-				topButton.forEach(button => {
+				for (let i = 0; i < topButton.length; i++) {
 					if (isDarkMode) {
-						button.style.backgroundColor = "#f2f2f2";
-						button.style.color = "#3f48cc";
+						topButton[i].style.backgroundColor = "#f2f2f2";
+						topButton[i].style.color = "#3f48cc";
 					} else {
-						btn.style.backgroundColor = "#3f48cc";
-						btn.style.color = "#f2f2f2";
+						topButton[i].style.backgroundColor = "#3f48cc";
+						topButton[i].style.color = "#f2f2f2";
 					}
-				});
+				}
+				mode.innerHTML = isDarkMode ? "<i class='fa-solid fa-sun'></i>" : '<i class="fa-solid fa-moon"></i>';
 				section1.style.color = isDarkMode ? "#f2f2f2" : "#3f48cc";
 				name.style.color = isDarkMode ? "#f2f2f2" : "#3f48cc";
 				profession.style.color = isDarkMode ? "#606060" : "#404040";
@@ -207,7 +212,7 @@
 			function animate() {
 				requestAnimationFrame(animate);
 				const time = Date.now() * 0.001;
-				scene.background.lerp(scene.background, 0.05);
+				scene.background.lerp(lerpBackground, 0.05);
 				cubes.forEach(cube => {
 					cube.rotation.x += cube.rotationSpeed.x;
 					cube.rotation.y += cube.rotationSpeed.y;

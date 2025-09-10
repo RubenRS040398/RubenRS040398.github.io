@@ -7,3 +7,24 @@ canvas {
 	height: 100%;
 	z-index: 0;
 }
+.top-buttons {
+	display: flex;
+	position: fixed;
+	top: 24px;
+	right: 24px;
+	z-index: 20;
+	gap: 24px;
+}
+
+.top-button {
+	padding: 8px 8px;
+	font-size: 32px;
+	width: 64px;
+	height: 64px;
+	cursor: pointer;
+	border: none;
+	border-radius: 8px;
+	transition: background-color 0.75s, color 0.75s;
+	background-color: #3f48cc;
+	color: #f2f2f2;
+}
