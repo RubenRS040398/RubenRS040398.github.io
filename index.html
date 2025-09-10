@@ -72,6 +72,7 @@
 			
 			// Camera
 			const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+			camera.position.z = 30;
 			
 			// Renderer
 			const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -89,13 +90,13 @@
 			
 			// Cubes
 			const cubes = [];
-			const count = 20;
-			const geometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
+			const count = 50;
+			const geometry = new THREE.BoxGeometry(3.0, 3.0, 3.0);
 			
 			for (let i = 0; i < count; i++) {
 				const material = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.4, metalness: 0.2 });
 				const cube = new THREE.Mesh(geometry, material);
-				cube.position.set((Math.random() - 0.5) * 50, (Math.random() - 0.5) * 50, (Math.random() - 0.5) * 50);
+				cube.position.set((Math.random() - 0.5) * 90, (Math.random() - 0.5) * 60, (Math.random() - 0.5) * 30);
 				cube.rotationSpeed = { x: (Math.random() - 0.5) * 0.05, y: (Math.random() - 0.5) * 0.05 };
 				cube.userData.targetColor = new THREE.Color(0xffffff);
 				scene.add(cube);
