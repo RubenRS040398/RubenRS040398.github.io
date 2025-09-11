@@ -37,7 +37,7 @@
 					My name is Rubén Ramos Segarra, and I'm a Computer Engineering student (currently concluding my studies). 
 					My specialty is Computer Science (algorithm analysis and design, machine learning, computer vision, among others), 
 					but I also have experience in web development, databases, testing and project management, in addition to having experience 
-					in programming languages ​​such as C/C++, Python, Java, and JavaScript. That's why I consider myself an innovative and 
+					in programming languages ​​such as C/C++, Python, Java, and JavaScript. I consider myself an innovative and 
 					creative person with a great capacity to adapt to technological advances and acquire new knowledgements.
 				</div>
 			</div>
@@ -53,7 +53,7 @@
 			<div class="down-arrow"><i class="fa-solid fa-angle-down"></i></div>
 		</div>
 		<div class="section" id="section-4">
-			<div class="up-arrow"><i class="fa-solid fa-angle-up"></div>
+			<div class="up-arrow"><i class="fa-solid fa-angle-up"></i></div>
 			<div class="text-section">
 				<div class="section-title" id="contact-title">CONTACT & ADDITIONAL INFO</div>
 				<div class="section-text">
@@ -128,6 +128,7 @@
 			const contactTitle = document.getElementById("contact-title");
 			const cvText = document.getElementById("cv-text");
 			const copyright = document.getElementById("copyright");
+			const cubesLogo = document.getElementById("cubes");
 			
 			// HTML Elements (by class)
 			const topButton = document.getElementsByClassName("top-button");
@@ -136,6 +137,9 @@
 			const textSection = document.getElementsByClassName("text-section");
 			const cell = document.getElementsByClassName("cell");
 			
+			// HTML Elements (by tag name)
+			const link = document.getElementsByTagName("a");
+			
 			// Sets the language (English, Spanish or Catalan)
 			function setLanguage() {
 				if (defaultLanguage === "en") {	// If English, switch to Spanish
@@ -143,7 +147,7 @@
 					language.innerHTML = '<span class="fi fi-es fis"></span>';
 					profession.innerText = "Estudiante de Ingeniería Informática";
 					introTitle.innerText = "INTRODUCCIÓN";
-					introText.innerText = "Mi nombre es Rubén Ramos Segarra y soy estudiante de Ingeniería Informática (actualmente finalizando mis estudios). Mi especialidad es la computación (análisis y diseño de algoritmos, aprendizaje automático, visión por computador, entre otros), pero también tengo experiencia en desarrollo web, bases de datos, testing y gestión de proyectos, además de conocimientos en lenguajes de programación como C/C++, Python, Java y JavaScript. Es por ello que me considero una persona innovadora y creativa con gran capacidad para adaptarme a los avances tecnológicos y adquirir nuevos conocimientos.";
+					introText.innerText = "Mi nombre es Rubén Ramos Segarra y soy estudiante de Ingeniería Informática (actualmente finalizando mis estudios). Mi especialidad es la computación (análisis y diseño de algoritmos, aprendizaje automático, visión por computador, entre otros), pero también tengo experiencia en desarrollo web, bases de datos, testing y gestión de proyectos, además de conocimientos en lenguajes de programación como C/C++, Python, Java y JavaScript. Me considero una persona innovadora y creativa con gran capacidad para adaptarme a los avances tecnológicos y adquirir nuevos conocimientos.";
 					projectsTitle.innerText = "PROYECTOS";
 					contactTitle.innerText = "CONTACTO E INFORMACIÓN ADICIONAL";
 					cvText.innerText = "Mi Currículum Vitae";
@@ -152,7 +156,7 @@
 					language.innerHTML = '<span class="fi fi-es-ct fis"></span>';
 					profession.innerText = "Estudiant d’Enginyeria Informàtica";
 					introTitle.innerText = "INTRODUCCIÓ";
-					introText.innerText = "El meu nom és Rubén Ramos Segarra i sóc estudiant d'Enginyeria Informàtica (actualment finalitzant els meus estudis). La meva especialitat és la computació (anàlisi i disseny d'algoritmes, aprenentatge automàtic, visió per computador, entre d'altres), però també tinc experiència en desenvolupament web, bases de dades, testing i gestió de projectes, a més de coneixements en llenguatges de programació com ara C/C++, Python, Java i JavaScript. És per això que em considero una persona innovadora i creativa amb gran capacitat per adaptar-me als avenços tecnològics i adquirir nous coneixements.";
+					introText.innerText = "El meu nom és Rubén Ramos Segarra i sóc estudiant d'Enginyeria Informàtica (actualment finalitzant els meus estudis). La meva especialitat és la computació (anàlisi i disseny d'algoritmes, aprenentatge automàtic, visió per computador, entre d'altres), però també tinc experiència en desenvolupament web, bases de dades, testing i gestió de projectes, a més de coneixements en llenguatges de programació com ara C/C++, Python, Java i JavaScript. Em considero una persona innovadora i creativa amb gran capacitat per adaptar-me als avenços tecnològics i adquirir nous coneixements.";
 					projectsTitle.innerText = "PROJECTES";
 					contactTitle.innerText = "CONTACTE I INFORMACIÓ ADDICIONAL";
 					cvText.innerText = "El meu Currículum Vitae";
@@ -161,7 +165,7 @@
 					language.innerHTML = '<span class="fi fi-gb fis"></span>';
 					profession.innerText = "Computer Engineering Student";
 					introTitle.innerText = "INTRODUCTION";
-					introText.innerText = "My name is Rubén Ramos Segarra, and I'm a Computer Engineering student (currently concluding my studies). My specialty is Computer Science (algorithm analysis and design, machine learning, computer vision, among others), but I also have experience in web development, databases, testing and project management, in addition to having experience in programming languages ​​such as C/C++, Python, Java, and JavaScript. That's why I consider myself an innovative and creative person with a great capacity to adapt to technological advances and acquire new knowledgements.";
+					introText.innerText = "My name is Rubén Ramos Segarra, and I'm a Computer Engineering student (currently concluding my studies). My specialty is Computer Science (algorithm analysis and design, machine learning, computer vision, among others), but I also have experience in web development, databases, testing and project management, in addition to having experience in programming languages ​​such as C/C++, Python, Java, and JavaScript. I consider myself an innovative and creative person with a great capacity to adapt to technological advances and acquire new knowledgements.";
 					projectsTitle.innerText = "PROJECTS";
 					contactTitle.innerText = "CONTACT & ADDITIONAL INFO";
 					cvText.innerText = "My Curriculum Vitae";
@@ -190,6 +194,7 @@
 				section1.style.color = isDarkMode ? "#f2f2f2" : "#3f48cc";
 				name.style.color = isDarkMode ? "#f2f2f2" : "#3f48cc";
 				profession.style.color = isDarkMode ? "#606060" : "#404040";
+				cubesLogo.style.color = isDarkMode ? "#f2f2f2" : "#3f48cc";
 				for (let i = 0; i < upArrow.length; i++) {
 					upArrow[i].style.color = isDarkMode ? "#f2f2f2" : "#3f48cc";
 				}
@@ -205,6 +210,9 @@
 					cell[i].style.backgroundColor = isDarkMode ? "#404040" : "#ffffff";
 				}
 				copyright.style.color = isDarkMode ? "#f2f2f2" : "#404040";
+				for (let i = 0; i < link.length; i++) {
+					link[i].style.color = isDarkMode ? "#f2f2f2" : "#404040";
+				}
 			}
 			
 			mode.addEventListener("click", changeMode);
