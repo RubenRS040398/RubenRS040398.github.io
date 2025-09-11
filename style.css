@@ -83,3 +83,37 @@ canvas {
 		transform: translateY(25px);
 	}
 }
+
+.section {
+	position: fixed;
+	top: 100%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	z-index: 10;
+	transition: top 0.7s ease;
+}
+
+#section-2, #section-3, #section-4 {
+	top: 300%;
+}
+
+.text-section {
+	max-width: 1024px;
+	max-height: 1024px;
+	padding: 24px 24px;
+	color: #404040;
+	background-color: #f2f2f2;
+	border-radius: 16px;
+}
+
+.section-title {
+	font-family: 'Jockey One', sans-serif;
+	font-size: 48px;
+}
+
+.section-text {
+	padding: 24px;
+	font-family: 'Barlow Condensed', sans-serif;
+	font-size: 24px;
+}
