@@ -52,6 +52,12 @@ html, body {
 	animation: bounce-down 2.0s infinite;
 }
 
+#cubes {
+	padding: 24px;
+	font-size: 96px;
+	color: #3f48cc;
+}
+
 .title {
 	position: fixed;
 	top: 55%;
