@@ -117,3 +117,13 @@ canvas {
 	font-family: 'Barlow Condensed', sans-serif;
 	font-size: 24px;
 }
+
+#copyright {
+	position: fixed;
+	bottom: 24px;
+	right: 24px;
+	font-family: 'Barlow Condensed', sans-serif;
+	font-size: 24px;
+	color: #404040;
+	z-index: 30;
+}
