@@ -43,3 +43,25 @@ canvas {
 	color: #3f48cc;
 	animation: bounce-down 1.5s infinite;
 }
+
+.title {
+	position: fixed;
+	top: 55%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	z-index: 10;
+	opacity: 1;
+}
+
+#name {
+	font-family: 'Jockey One', sans-serif;
+	font-size: 96px;
+	color: #3f48cc;
+}
+	
+#profession {
+	font-family: 'Jockey One', sans-serif;
+	font-size: 32px;
+	color: #404040
+}
