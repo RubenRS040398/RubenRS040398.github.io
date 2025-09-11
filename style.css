@@ -34,14 +34,14 @@ canvas {
 	padding: 24px;
 	font-size: 96px;
 	color: #3f48cc;
-	animation: bounce-up 1.5s infinite;
+	animation: bounce-up 2.0s infinite;
 }
 
 .down-arrow {
 	padding: 24px;
 	font-size: 96px;
 	color: #3f48cc;
-	animation: bounce-down 1.5s infinite;
+	animation: bounce-down 2.0s infinite;
 }
 
 .title {
@@ -64,4 +64,22 @@ canvas {
 	font-family: 'Jockey One', sans-serif;
 	font-size: 32px;
 	color: #404040
+}
+
+@keyframes bounce-up {
+	0%, 100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-25px);
+	}
+}
+
+@keyframes bounce-down {
+	0%, 100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(25px);
+	}
 }
