@@ -29,3 +29,17 @@ canvas {
 	background-color: #3f48cc;
 	color: #f2f2f2;
 }
+
+.up-arrow {
+	padding: 24px;
+	font-size: 96px;
+	color: #3f48cc;
+	animation: bounce-up 1.5s infinite;
+}
+
+.down-arrow {
+	padding: 24px;
+	font-size: 96px;
+	color: #3f48cc;
+	animation: bounce-down 1.5s infinite;
+}
