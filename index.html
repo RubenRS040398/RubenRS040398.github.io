@@ -230,15 +230,16 @@
 			
 				if (scrollY <= 50) {
 					section1.style.top = "55%";
-					section2.style.top = "300%";
-					section3.style.top = "300%";
-					section4.style.top = "300%";
+					section2.style.top = "200%";
+					section3.style.top = "200%";
+					section4.style.top = "200%";
 				} else {
 					const index = Math.min(Math.floor((scrollY - 50) / sectionHeight), 2);
+					console.log(Math.floor((scrollY - 50) / sectionHeight));
 					section1.style.top = "-100%";
-					section2.style.top = 0 === index ? "50%" : (0 < index ? "-100%" : "300%");
-					section3.style.top = 1 === index ? "50%" : (1 < index ? "-100%" : "300%");
-					section3.style.top = 2 === index ? "50%" : (2 < index ? "-100%" : "300%");
+					section2.style.top = 0 === index ? "50%" : (0 < index ? "-100%" : "200%");
+					section3.style.top = 1 === index ? "50%" : (1 < index ? "-100%" : "200%");
+					section4.style.top = 2 === index ? "50%" : (2 < index ? "-100%" : "200%");
 				}
 			});
 			
