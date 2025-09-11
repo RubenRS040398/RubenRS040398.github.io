@@ -8,6 +8,14 @@ canvas {
 	z-index: 0;
 }
 
+html, body {
+	margin: 0;
+	padding: 0;
+	overflow-y: auto;
+	width: 100%;
+	min-height: 200vh;
+}
+
 .top-buttons {
 	display: flex;
 	position: fixed;
@@ -51,7 +59,7 @@ canvas {
 	transform: translate(-50%, -50%);
 	text-align: center;
 	z-index: 10;
-	opacity: 1;
+	transition: top 0.75s ease;
 }
 
 #name {
@@ -91,7 +99,7 @@ canvas {
 	transform: translate(-50%, -50%);
 	text-align: center;
 	z-index: 10;
-	transition: top 0.7s ease;
+	transition: top 0.75s ease;
 }
 
 #section-2, #section-3, #section-4 {

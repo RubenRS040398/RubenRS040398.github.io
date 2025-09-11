@@ -223,10 +223,11 @@
 			}
 			animate();
 			
-			const scrollY = window.scrollY;
 			const sectionHeight = 300;
 			
 			window.addEventListener("scroll", () => {
+				const scrollY = window.scrollY;
+			
 				if (scrollY <= 50) {
 					section1.style.top = "55%";
 					section2.style.top = "300%";
