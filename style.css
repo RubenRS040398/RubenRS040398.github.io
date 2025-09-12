@@ -39,6 +39,7 @@ html, body {
 	font-size: 96px;
 	color: #3f48cc;
 	animation: bounce-up 2.0s infinite;
+	transition: color 0.75s;
 }
 
 .down-arrow {
@@ -46,12 +47,14 @@ html, body {
 	font-size: 96px;
 	color: #3f48cc;
 	animation: bounce-down 2.0s infinite;
+	transition: color 0.75s;
 }
 
 #cubes {
 	padding: 24px;
 	font-size: 96px;
 	color: #3f48cc;
+	transition: color 0.75s;
 }
 
 .title {
@@ -68,12 +71,14 @@ html, body {
 	font-family: 'Jockey One', sans-serif;
 	font-size: 96px;
 	color: #3f48cc;
+	transition: color 0.75s;
 }
 	
 #profession {
 	font-family: 'Jockey One', sans-serif;
 	font-size: 32px;
-	color: #404040
+	color: #404040;
+	transition: color 0.75s;
 }
 
 @keyframes bounce-up {
@@ -115,6 +120,7 @@ html, body {
 	color: #404040;
 	background-color: #f2f2f2;
 	border-radius: 16px;
+	transition: background-color 0.75s, color 0.75s;
 }
 
 .section-title {
@@ -143,6 +149,7 @@ html, body {
 	align-items: center;
 	border-radius: 16px;
 	overflow: hidden;
+	transition: background-color 0.75s, color 0.75s;
 }
 
 .cell.span-5 {
@@ -167,6 +174,7 @@ html, body {
 
 a {
 	color: #404040;
+	transition: color 0.75s;
 }
 
 #copyright {
@@ -177,4 +185,5 @@ a {
 	font-size: 24px;
 	color: #404040;
 	z-index: 30;
+	transition: color 0.75s;
 }
