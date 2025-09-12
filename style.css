@@ -9,10 +9,6 @@ canvas {
 }
 
 html, body {
-	margin: 0;
-	padding: 0;
-	overflow-y: auto;
-	width: 100%;
 	min-height: 200vh;
 }
 
@@ -128,6 +124,43 @@ html, body {
 
 .section-text {
 	padding: 24px;
+	font-family: 'Barlow Condensed', sans-serif;
+	font-size: 24px;
+}
+
+.section-grid {
+	padding: 24px 24px;
+	display: grid;
+	grid-template-columns: repeat(6, minmax(24px, 128px));
+	grid-template-rows: repeat(3, minmax(24px, 128px));
+	gap: 24px;
+}
+
+.cell {
+	background: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 16px;
+	overflow: hidden;
+}
+
+.cell.span-5 {
+	grid-column: span 5;
+}
+
+.flex-container {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.project-link {
+	font-family: 'Jockey One', sans-serif;
+	font-size: 24px;
+}
+	
+.project-description {
 	font-family: 'Barlow Condensed', sans-serif;
 	font-size: 24px;
 }
