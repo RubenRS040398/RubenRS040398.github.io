@@ -217,6 +217,7 @@
 			
 			const lerpBackground = new THREE.Color(0xffffff);
 			
+			// Changes between light and dark mode
 			function changeMode() {
 				isDarkMode = !isDarkMode;
 				const color = isDarkMode ? 0x404040 : 0xffffff;
@@ -275,6 +276,7 @@
 			
 			const sectionHeight = 300;
 			
+			// When scrolling, move a section up or down to switch sections
 			window.addEventListener("scroll", () => {
 				const scrollY = window.scrollY;
 			
