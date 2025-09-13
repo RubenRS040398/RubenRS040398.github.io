@@ -20,8 +20,11 @@ This repository contains my personal portfolio, which includes information about
 
 ## Screenshots
 
-TBD.
+![Title / Profession](./screenshots/Screenshot1.png)
+![Introduction](./screenshots/Screenshot2.png)
+![Contact & Additional Info](./screenshots/Screenshot3.png)
+![Catalan / Dark mode test](./screenshots/Screenshot4.png)
 
 ## License
 
-The content of this repository is protected by copyright.
+The content of this repository is protected by copyright. Check the license for further details.
